@@ -65,13 +65,14 @@
             </div>
         </div>  
     </fieldset>
-    {% if track_list %}
-      <h2>Recommended Tracks:</h2>
-      <ul>
-        {% for track in track_list %}
-          <li>{{ track }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+    <div>
+        {% if iframe_list %}
+        <div>
+            {% for iframe in iframe_list %}
+            {{ iframe|safe }}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>   
 </body>
 </html>
