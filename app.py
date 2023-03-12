@@ -91,11 +91,14 @@ def recommendations():
     # Print track names and artists
     #for track in tracks:
     #    print(track['name'], 'by', track['artists'][0]['name'])
-    track_list = []
+    iframe_list = []
     for track in tracks:
-        track_list.append(f"{track['name']} by {track['artists'][0]['name']}")
-    print(track_list)
-    return render_template('index.html', track_list=track_list)
+        track_id = track['id']
+        embed_url = f"https://open.spotify.com/embed/track/{track_id}"
+        iframe = f'<iframe src="{embed_url}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
+        iframe_list.append(iframe)
+
+    return render_template('index.html', iframe_list=iframe_list)
 if __name__ == '__main__':
     app.run(debug=False, port=80)
 
